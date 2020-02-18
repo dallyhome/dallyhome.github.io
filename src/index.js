@@ -120,7 +120,7 @@ function progress(totalModel) {
 }
 
 async function run() {
-  let interval = 100;
+  let interval = 1;
   if (myYolo) {
     let threshold = .3;
     if (selected == v3tiny)
