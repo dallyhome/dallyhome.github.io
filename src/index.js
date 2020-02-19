@@ -85,8 +85,8 @@ async function load(button) {
         break;
       default:
         progress(9);
-        
-       myYolo = await tf.loadModel('https://dallyhome.github.io/model-1a/model.json');
+     
+       myYolo = await tf.loadModel('https://raw.githubusercontent.com/shaqian/tfjs-yolo-demo/master/dist/model/v3tiny/model.json');
         //myYolo = await yolo.v3tiny();
     }
   }, 200);
