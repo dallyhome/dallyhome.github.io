@@ -26,7 +26,7 @@ let selected;
 
 (async function main() {
   try {
-    await setupWebCam();
+   // await setupWebCam();
 
     v3.addEventListener('click', () => load(v3));
     v1tiny.addEventListener('click', () => load(v1tiny));
@@ -86,7 +86,8 @@ async function load(button) {
       default:
         progress(9);
        // myYolo = await tf.loadModel('file://./model-1a/model.json');
-        myYolo = await yolo.v3tiny();
+        
+       myYolo = await yolo.v3tiny("https://raw.githubusercontent.com/shaqian/tfjs-yolo-demo/master/dist/model/v3tiny/model.json");
     }
   }, 200);
 }
