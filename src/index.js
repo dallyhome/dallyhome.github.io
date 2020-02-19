@@ -122,7 +122,7 @@ function progress(totalModel) {
 }
 
 async function run() {
-  let interval = 1;
+  let interval = 50;
   if (myYolo) {
     let threshold = .3;
     interval = 10;
