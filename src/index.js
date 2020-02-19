@@ -84,8 +84,9 @@ async function load(button) {
         myYolo = await yolo.v2tiny();
         break;
       default:
-       //progress(9);
-        myYolo = await tf.loadModel('file://./model-1a/model.json');
+        progress(9);
+        
+       myYolo = await tf.loadModel('https://dallyhome.github.io/model-1a/model.json');
         //myYolo = await yolo.v3tiny();
     }
   }, 200);
@@ -124,6 +125,7 @@ async function run() {
   let interval = 1;
   if (myYolo) {
     let threshold = .3;
+    interval = 10;
     if (selected == v3tiny)
       threshold = .2;
     else if (selected == v3)
