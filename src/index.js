@@ -85,7 +85,8 @@ async function load(button) {
         break;
       default:
         progress(9);
-        myYolo = await yolo.v3tiny();
+        myYolo = await tf.loadModel('file://./model-1a/model.json');
+        //myYolo = await yolo.v3tiny();
     }
   }, 200);
 }
