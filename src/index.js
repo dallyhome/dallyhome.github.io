@@ -26,7 +26,7 @@ let selected;
 
 (async function main() {
   try {
-    await setupWebCam();
+  //  await setupWebCam();
 
     v3.addEventListener('click', () => load(v3));
     v1tiny.addEventListener('click', () => load(v1tiny));
@@ -125,6 +125,10 @@ function progress(totalModel) {
 async function run() {
   let interval = 1;
   if (myYolo) {
+    loader.style.display = 'none';
+    spinner.style.display = 'none';
+    loader.setAttribute('percent', '0.0');
+    
     let threshold = .3;
     if (selected == v3tiny)
       threshold = .2;
@@ -136,6 +140,8 @@ async function run() {
 }
 
 async function predict(threshold) {
+
+
   console.log(`Start with ${tf.memory().numTensors} tensors`);
 
   const start = performance.now();
