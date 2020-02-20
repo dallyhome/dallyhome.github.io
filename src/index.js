@@ -87,7 +87,8 @@ async function load(button) {
         progress(9);
        // myYolo = await tf.loadModel('file://./model-1a/model.json');
         
-       myYolo = await yolo.v3tiny("https://raw.githubusercontent.com/shaqian/tfjs-yolo-demo/master/dist/model/v3tiny/model.json");
+       //myYolo = await yolo.v3tiny("https://raw.githubusercontent.com/shaqian/tfjs-yolo-demo/master/dist/model/v3tiny/model.json");
+        myYolo = await yolo.v3tiny("https://dallyhome.github.io/model-1a/model.json");
     }
   }, 200);
 }
@@ -176,7 +177,7 @@ function drawBoxes(boxes) {
     rect.style.width = `${box['width'] * scaleW - 4}px`;
     rect.style.height = `${box['height'] * scaleH - 4}px`;
     rect.style.borderColor = colors[box['class']];
-
+  
     const text = document.createElement('div');
     text.className = 'text';
     text.innerText = `${box['class']} ${box['score'].toFixed(2)}`;
