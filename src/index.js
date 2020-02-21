@@ -26,7 +26,7 @@ let selected;
 
 (async function main() {
   try {
-    //await setupWebCam();
+    await setupWebCam();
 
     v3.addEventListener('click', () => load(v3));
     v1tiny.addEventListener('click', () => load(v1tiny));
