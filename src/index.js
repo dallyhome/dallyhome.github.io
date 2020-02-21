@@ -26,7 +26,7 @@ let selected;
 
 (async function main() {
   try {
-    await setupWebCam();
+    //await setupWebCam();
 
     v3.addEventListener('click', () => load(v3));
     v1tiny.addEventListener('click', () => load(v1tiny));
@@ -124,6 +124,7 @@ function progress(totalModel) {
 
 async function run() {
   let interval = 1;
+  let iSize=608;
   if (myYolo) {
     loader.style.display = 'none';
     spinner.style.display = 'none';
@@ -131,21 +132,27 @@ async function run() {
 
     let threshold = .3;
     if (selected == v3tiny)
-      threshold = .2;
+    {
+      threshold = .05;
+      iSize=608;
+     
+    }    
     else if (selected == v3)
       interval = 10;
-    await predict(threshold);
+    await predict(threshold,iSize);
   }
   setTimeout(run, interval * 100);
 }
 
-async function predict(threshold) {
+async function predict(threshold,iSize) {
 
-
+  console.log('iSize:'+iSize)
   console.log(`Start with ${tf.memory().numTensors} tensors`);
 
+  console.log(webcam)
+
   const start = performance.now();
-  const boxes = await myYolo.predict(webcam, { scoreThreshold: threshold });
+  const boxes = await myYolo.predict(webcam, { scoreThreshold: threshold ,inputSize:iSize});
   const end = performance.now();
 
   console.log(`Inference took ${end - start} ms`);
